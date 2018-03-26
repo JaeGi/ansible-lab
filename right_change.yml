@@ -1,0 +1,12 @@
+---
+- name: right change
+  hosts: all
+  become: true
+  tasks:
+    - name: change /tmp/dir1 right to ansibleadmin 
+      file:
+        path: /tmp/dir1
+        state: directory
+        owner: ansibleAdmin
+        group: ansibleAdmin
+        mode: "u=rwx,g=rx,o=rx"  

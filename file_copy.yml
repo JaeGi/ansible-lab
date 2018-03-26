@@ -1,0 +1,8 @@
+---
+- name: file push to remote server
+  hosts: all
+  tasks:
+    - name: file copy to remote server
+      copy:
+        src: aaa.txt
+        dest: /tmp/aaa.txt

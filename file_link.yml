@@ -1,0 +1,8 @@
+- name: LINK
+  hosts: all
+  tasks :
+    - name: /tmp/dir1 -> /tmp/link_to_dir1 create
+      file:
+        src: /tmp/dir1
+        dest: /tmp/link_to_dir1
+        state: link

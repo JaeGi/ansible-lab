@@ -1,0 +1,6 @@
+---
+- name: ENV display
+  hosts: all
+  tasks:
+    - name: HOME EV display
+      command: "echo {{ ansible_env.HOME | quote }}"

@@ -1,0 +1,8 @@
+---
+  - name: SSH KEY gen
+    hosts: all
+    tasks:
+      - name: tmp directory no password ssh-key gen
+        command: "/usr/bin/ssh-keygen -b 2048 -t rsa -N '' -f /tmp/new-id_rsa"
+        args:
+          creates: /tmp/new-id_rsa

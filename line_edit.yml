@@ -1,0 +1,18 @@
+---
+- name: modyfi lin-by-line file contents
+  hosts: all
+  become: true
+  tasks:
+    - name : modifing sshd config to prevent direct root access
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: '^PermitRootLogin\s+'
+        line: PermitRootLogin without-password
+        validate: sshd -t -f %s
+      notify:
+        - sshd restart
+  handlers:
+    - name: sshd restart
+      service:
+        name: sshd
+        state: restarted 

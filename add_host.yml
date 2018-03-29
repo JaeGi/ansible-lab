@@ -1,0 +1,16 @@
+---
+- name: 호스트를 새로 작성할 플레이 <- 내부에서 add_host를 이용
+  hosts: localhost
+  tasks:
+  ....
+
+- name: 새로 작성된 애플리케이션용 호스트 정보를 인벤터리에 추가
+  add_host:
+    name: created-host
+    groups: created,app3
+    ansible_host: "{{ created_host_ip }}"
+    ansible_port: 22
+- name: 새로 작성한 호스트를 배포하는 플레이  <- 여기부터 add_host에 추가한 정보가 유효화됨
+  hosts: created
+  tasks:
+  ...

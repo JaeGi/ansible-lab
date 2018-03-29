@@ -1,0 +1,17 @@
+---
+- name: OS별로 그룹화
+  hosts: all
+  tasks:
+    - name: 변수 정보를 사용하여 레드햇 계열은 'Redhat', 데이반 계열은 'debian' 그룹으로 나눌 수 있습니댜.
+      group_by:
+        key: "{{ ansible_os_family }}"
+
+
+- name: Redhat series 업데이트용 플레이
+  hosts: Red hat
+  ...
+
+
+- name: Debian series 업데이트용 플레이
+  hosts: Debian
+  ....

@@ -1,0 +1,9 @@
+---
+- name: 포트 번호를 사용하는 플레이
+  hosts: all
+  vars: 
+    nginx_http_port: 80
+    mysql_port: 3306
+  vars_files:
+    - some_vars.yml
+    - another_vars.yml

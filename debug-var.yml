@@ -1,0 +1,10 @@
+---
+- name: 변수의 동작을 확인
+  hosts: localhost
+  vars:
+    my_var: jung
+  tasks:
+    - name: my_var 값을 디버깅으로 확인
+      debug:
+        msg: "변수 my_var값은 {{ my_var }} 이다"
+
